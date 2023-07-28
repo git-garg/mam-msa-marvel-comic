@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 
-public interface CharacterRespository {
+public interface CharacterRepository {
 
-	List<CharacterDto> getCaracters();
+	List<CharacterDto> characters();
 
 }

@@ -1,35 +1,39 @@
 package com.pichincha.mambu.marvel.comic.service;
 
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.pichincha.mambu.marvel.comic.repository.CharacterRepository;
+import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
+import com.pichincha.mambu.marvel.comic.service.impl.CharacterServiceImpl;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.pichincha.mambu.marvel.comic.repository.CharacterRespository;
-import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
-import com.pichincha.mambu.marvel.comic.service.impl.CharacterServiceImpl;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.mockito.Mockito.when;
+
+@SpringBootTest
 public class CharacterServiceImplTest {
 
-	@InjectMocks
-	private CharacterRespository characterRespository;
+    @Mock
+    private CharacterRepository characterRepository;
 
-	@Mock
-	private CharacterServiceImpl characterServiceImpl;
+    @InjectMocks
+    private CharacterServiceImpl characterServiceImpl;
 
-	@Test
-	@DisplayName("all character test")
-	public void getCharacterListTest() {
+    @Test
+    @DisplayName("get all character test")
+    public void getCharacterListTest() {
 
-		List<CharacterDto> characters = new ArrayList<>();
-		CharacterDto characterDto = new CharacterDto();
-		//when(characterRespository.getCaracters()).thenReturn(characters);
+        List<CharacterDto> characters = new ArrayList<>();
+        CharacterDto characterDto = CharacterDto.builder().id(1l).name("Spider Man").description("Spider Man").build();
+        characters.add(characterDto);
+        when(characterRepository.characters()).thenReturn(characters);
+        Assertions.assertNotNull(characterServiceImpl.characters());
 
-	}
+    }
 
 }
