@@ -1,8 +1,9 @@
 package com.pichincha.mambu.marvel.comic.controller;
 
-import com.pichincha.mambu.marvel.comic.service.CharacterService;
+import com.pichincha.mambu.marvel.comic.repository.MarvelRepository;
 import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
-import org.springframework.http.HttpStatus;
+import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,14 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
-@lombok.RequiredArgsConstructor
+@lombok.AllArgsConstructor
 public class CharacterController {
 
-    private final CharacterService characterService;
-
-    @GetMapping("/character/")
-    ResponseEntity<List<CharacterDto>> characters() {
-        List<CharacterDto> characterDtoList = characterService.characters();
-        return new ResponseEntity<>(characterDtoList, HttpStatus.OK);
+    private MarvelRepository marvelRepository;
+    @GetMapping("/characters/")
+    MarvelDto characters() {
+        return marvelRepository.getResponseMarvel().getBody();
     }
 }

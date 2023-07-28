@@ -1,20 +1,18 @@
 package com.pichincha.mambu.marvel.comic.service.impl;
 
-import com.pichincha.mambu.marvel.comic.repository.CharacterRepository;
+import com.pichincha.mambu.marvel.comic.repository.MarvelRepository;
 import com.pichincha.mambu.marvel.comic.service.CharacterService;
-import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
+@lombok.AllArgsConstructor
 public class CharacterServiceImpl implements CharacterService {
 
-    @Autowired
-    private CharacterRepository characterRepository;
+    private MarvelRepository marvelRepository;
 
     @Override
-    public List<CharacterDto> characters() {
-        return characterRepository.characters();
+    public MarvelDto getMarvelDto() {
+        return marvelRepository.getResponseMarvel().getBody();
     }
 }
