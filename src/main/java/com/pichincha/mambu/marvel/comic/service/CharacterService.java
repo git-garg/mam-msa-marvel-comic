@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CharacterService {
 
-    MarvelDto getMarvelDto();
+    List<CharacterDto> getCharacterDto();
 }

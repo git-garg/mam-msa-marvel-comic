@@ -1,6 +1,7 @@
 package com.pichincha.mambu.marvel.comic.controller;
 
 import com.pichincha.mambu.marvel.comic.repository.MarvelRepository;
+import com.pichincha.mambu.marvel.comic.service.CharacterService;
 import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,10 @@ import java.util.List;
 @lombok.AllArgsConstructor
 public class CharacterController {
 
-    private MarvelRepository marvelRepository;
+    private CharacterService characterService;
+
     @GetMapping("/characters/")
-    MarvelDto characters() {
-        return marvelRepository.getResponseMarvel().getBody();
+    List<CharacterDto> characters() {
+        return characterService.getCharacterDto();
     }
 }
