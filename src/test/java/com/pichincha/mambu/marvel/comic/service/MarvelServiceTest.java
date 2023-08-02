@@ -1,7 +1,8 @@
 package com.pichincha.mambu.marvel.comic.service;
 
-import static org.mockito.Mockito.when;
-
+import com.pichincha.mambu.marvel.comic.repository.MarvelRepository;
+import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
+import com.pichincha.mambu.marvel.comic.service.impl.MarvelServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,12 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
-import com.pichincha.mambu.marvel.comic.repository.MarvelRepository;
-import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
-import com.pichincha.mambu.marvel.comic.service.impl.MarvelServiceImpl;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class MarvelServiceTest {
@@ -44,7 +41,7 @@ public class MarvelServiceTest {
 
     }
 
-    private ResponseEntity<MarvelDto> getResponseEntity() {
-        return new ResponseEntity<>(marvelDto, HttpStatus.OK);
+    private MarvelDto getResponseEntity() {
+        return marvelDto;
     }
 }

@@ -13,6 +13,6 @@ public class MarvelServiceImpl implements MarvelService {
 
     @Override
     public MarvelDto getMarvelDto() {
-        return marvelRepository.getResponseMarvel().getBody();
+        return marvelRepository.getResponseMarvel();
     }
 }
