@@ -16,23 +16,28 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class MarvelServiceTest {
 
-    @Mock
-    private MarvelRepository marvelRepository;
+	@Mock
+	private MarvelRepository marvelRepository;
 
-    @InjectMocks
-    private MarvelServiceImpl marvelServiceImpl;
+	@InjectMocks
+	private MarvelServiceImpl marvelServiceImpl;
 
-    private MarvelDto marvelDto;
+	private MarvelDto marvelDto;
 
-    @BeforeEach
-    void init() {
-        marvelDto = MarvelDto.builder().code(200L).status("Ok").copyright("© 2023 MARVEL").
-                attributionText("Data provided by Marvel. © 2023 MARVEL").
-                attributionHTML("<a href=\\\"http://marvel.com\\\">Data provided by Marvel. © 2023 MARVEL</a>").
-                etag("3ebecd8b84beef54ade110d2cd9a37b05510cccc").build();
-    }
+	@BeforeEach
+	void init() {
 
-    @Test
+		marvelDto = new MarvelDto();
+		marvelDto.setCode(200L);
+		marvelDto.setStatus("Ok");
+		marvelDto.setCopyright("© 2023 MARVEL");
+		marvelDto.setAttributionText("Data provided by Marvel. © 2023 MARVEL");
+		marvelDto.setAttributionHTML("<a href=\\\"http://marvel.com\\\">Data provided by Marvel. © 2023 MARVEL</a>");
+		marvelDto.setEtag("3ebecd8b84beef54ade110d2cd9a37b05510cccc");
+
+	}
+
+	@Test
     @DisplayName("get Marvel Info test")
     void getMarvelInfoTest() {
         when(marvelRepository.getResponseMarvel()).thenReturn(getResponseEntity());
@@ -41,7 +46,7 @@ public class MarvelServiceTest {
 
     }
 
-    private MarvelDto getResponseEntity() {
-        return marvelDto;
-    }
+	private MarvelDto getResponseEntity() {
+		return marvelDto;
+	}
 }

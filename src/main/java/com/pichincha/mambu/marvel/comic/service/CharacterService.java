@@ -1,9 +1,8 @@
 package com.pichincha.mambu.marvel.comic.service;
 
-import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
-import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
-
 import java.util.List;
+
+import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 
 public interface CharacterService {
 

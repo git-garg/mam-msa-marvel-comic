@@ -1,19 +1,18 @@
 package com.pichincha.mambu.marvel.comic.service.dto;
 
-import lombok.AccessLevel;
-
 import java.util.List;
 
-@lombok.Builder
+import lombok.AccessLevel;
+
 @lombok.Getter
 @lombok.Setter
-@lombok.experimental.FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@lombok.experimental.FieldDefaults(level = AccessLevel.PRIVATE)
 public class DataDto {
 
-    Long offset;
-    Long limit;
-    Long total;
-    Long count;
+	Long offset;
+	Long limit;
+	Long total;
+	Long count;
 
-    List<CharacterDto> results;
+	List<CharacterDto> results;
 }
