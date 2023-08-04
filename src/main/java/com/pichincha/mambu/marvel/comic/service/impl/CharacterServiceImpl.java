@@ -12,11 +12,10 @@ import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 @lombok.AllArgsConstructor
 public class CharacterServiceImpl implements CharacterService {
 
-    private MarvelService marvelService;
+	private MarvelService marvelService;
 
-
-    @Override
-    public List<CharacterDto> getCharacterDto() {
-        return marvelService.getMarvelDto().getData().getResults();
-    }
+	@Override
+	public List<CharacterDto> getCharacterDto(Long timestamp, String privateKey, String publicKey) {
+		return marvelService.getMarvelInfoDto(timestamp, privateKey, publicKey).getData().getResults();
+	}
 }

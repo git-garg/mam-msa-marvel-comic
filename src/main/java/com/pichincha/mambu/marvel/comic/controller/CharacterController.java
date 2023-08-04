@@ -10,14 +10,17 @@ import com.pichincha.mambu.marvel.comic.service.CharacterService;
 import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping
 @lombok.AllArgsConstructor
 public class CharacterController {
 
-    private CharacterService characterService;
+	private CharacterService characterService;
 
-    @GetMapping("/characters/")
-    List<CharacterDto> characters() {
-        return characterService.getCharacterDto();
-    }
+	@GetMapping("/characters/")
+	List<CharacterDto> characters() {
+		Long timestamp = System.currentTimeMillis();
+		String privateKey = "46856bb8271413a4b5dfa2cc62e986927310fb52";
+		String publicKey = "7ffa3acbf352e1ee03faba5489f6ab76";
+		return characterService.getCharacterDto(timestamp, privateKey, publicKey);
+	}
 }

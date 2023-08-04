@@ -2,7 +2,8 @@ package com.pichincha.mambu.marvel.comic.service.dto;
 
 @lombok.Getter
 @lombok.Setter
-public class MarvelDto {
+@lombok.experimental.FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+public class BaseMarvelDto {
 
 	Long code;
 	String status;
@@ -10,7 +11,5 @@ public class MarvelDto {
 	String attributionText;
 	String attributionHTML;
 	String etag;
-
-	DataDto data;
 
 }

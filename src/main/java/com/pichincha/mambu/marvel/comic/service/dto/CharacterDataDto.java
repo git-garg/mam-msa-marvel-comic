@@ -4,12 +4,7 @@ import java.util.List;
 
 @lombok.Getter
 @lombok.Setter
-public class DataDto {
-
-	Long offset;
-	Long limit;
-	Long total;
-	Long count;
-
+@lombok.experimental.FieldDefaults(level = lombok.AccessLevel.PRIVATE)
+public class CharacterDataDto extends BaseDataDto {
 	List<CharacterDto> results;
 }

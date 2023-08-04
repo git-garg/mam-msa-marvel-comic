@@ -6,5 +6,6 @@ import com.pichincha.mambu.marvel.comic.service.dto.CharacterDto;
 
 public interface CharacterService {
 
-    List<CharacterDto> getCharacterDto();
+	List<CharacterDto> getCharacterDto(Long timestamp, String privateKey, String publicKey);
+	
 }

@@ -1,9 +1,9 @@
 package com.pichincha.mambu.marvel.comic.service;
 
-import com.pichincha.mambu.marvel.comic.service.dto.MarvelDto;
+import com.pichincha.mambu.marvel.comic.service.dto.MarvelInfoDto;
 
 public interface MarvelService {
 
-    MarvelDto getMarvelDto();
+    MarvelInfoDto getMarvelInfoDto(Long timestamp, String privateKey, String publicKey);
 
 }

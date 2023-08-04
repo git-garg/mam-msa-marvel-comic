@@ -3,9 +3,11 @@ package com.pichincha.mambu.marvel.comic.service.dto;
 @lombok.Getter
 @lombok.Setter
 @lombok.experimental.FieldDefaults(level = lombok.AccessLevel.PRIVATE)
-public class CharacterDto {
+public class BaseDataDto {
 
-	Long id;
-	String name;
-	String description;
+	Long offset;
+	Long limit;
+	Long total;
+	Long count;
+
 }
